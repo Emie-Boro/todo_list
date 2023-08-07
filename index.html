@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="bg-fill">
+        <div class="new_todo">
+            <div class="p-5">
+                <h1>Todo List App</h1>
+                <input type="text" name="" id="new_todo" placeholder="New Todo">
+                <button id="submit" class="submit">Submit</button>
+                <div>
+                    <label for="checkbox">Alert</label>
+                    <input type="checkbox" name="checkbox" id="checkbox">
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="container">
+            <ul id="todo_list"></ul>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('submit').addEventListener('click', addTodo)
+        const todo_list = document.querySelector('#todo_list')
+        function addTodo () {
+            const li = document.createElement('li')
+
+            const p = document.createElement('p')
+            p.textContent = document.getElementById('new_todo').value
+
+
+            const delete_btn = document.createElement('button')
+            delete_btn.textContent = 'Delete'
+            delete_btn.addEventListener('click', () =>{
+                li.remove()
+            })
+
+            li.appendChild(p)
+            li.appendChild(delete_btn)
+            todo_list.appendChild(li)       
+
+            document.getElementById('new_todo').value = ''
+            
+        }
+
+        
+    </script>
+</body>
+</html>
